@@ -205,6 +205,22 @@
     <Compile Include="Migrations\201709061955486_first add.Designer.cs">
       <DependentUpon>201709061955486_first add.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709071811448_second add.cs" />
+    <Compile Include="Migrations\201709071811448_second add.Designer.cs">
+      <DependentUpon>201709071811448_second add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709071831333_changed string to int for states id.cs" />
+    <Compile Include="Migrations\201709071831333_changed string to int for states id.Designer.cs">
+      <DependentUpon>201709071831333_changed string to int for states id.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709071842411_testing key.cs" />
+    <Compile Include="Migrations\201709071842411_testing key.Designer.cs">
+      <DependentUpon>201709071842411_testing key.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709072006095_testing state key.cs" />
+    <Compile Include="Migrations\201709072006095_testing state key.Designer.cs">
+      <DependentUpon>201709072006095_testing state key.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddressModel.cs" />
@@ -288,6 +304,18 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201709061955486_first add.resx">
       <DependentUpon>201709061955486_first add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071811448_second add.resx">
+      <DependentUpon>201709071811448_second add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071831333_changed string to int for states id.resx">
+      <DependentUpon>201709071831333_changed string to int for states id.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709071842411_testing key.resx">
+      <DependentUpon>201709071842411_testing key.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709072006095_testing state key.resx">
+      <DependentUpon>201709072006095_testing state key.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

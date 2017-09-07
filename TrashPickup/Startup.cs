@@ -29,7 +29,7 @@ namespace TrashPickup
             {
 
                 // first we create Admin rool   
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Admin";
                 roleManager.Create(role);
 
@@ -54,7 +54,7 @@ namespace TrashPickup
             // creating Creating Manager role    
             if (!roleManager.RoleExists("Worker"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Worker";
                 roleManager.Create(role);
 
@@ -63,7 +63,7 @@ namespace TrashPickup
             // creating Creating Employee role    
             if (!roleManager.RoleExists("Customer"))
             {
-                var role = new Microsoft.AspNet.Identity.EntityFramework.IdentityRole();
+                var role = new IdentityRole();
                 role.Name = "Customer";
                 roleManager.Create(role);
 

@@ -143,6 +143,8 @@ namespace TrashPickup.Controllers
         {
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
+
+            ViewBag.State = new SelectList(context.States.ToList(), "State", "StateAbriviation");
             return View();
         }
 
@@ -155,7 +157,9 @@ namespace TrashPickup.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var results = context.States.Single(a => a.State == model.StateNotKey);
+                
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, StateKey = results.ID };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -167,10 +171,14 @@ namespace TrashPickup.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    
                     return RedirectToAction("Index", "Home");
                 }
                 ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                          .ToList(), "Name", "Name");
+
+               
+
                 AddErrors(result);
             }
 

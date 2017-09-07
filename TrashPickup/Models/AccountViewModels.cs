@@ -70,12 +70,10 @@ namespace TrashPickup.Models
         public string Email { get; set; }
 
         [Required]
-        [EmailAddress]
         [Display(Name = "UserRoles")]
         public string UserRoles { get; set; }
 
         [Required]
-        [EmailAddress]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
@@ -90,24 +88,20 @@ namespace TrashPickup.Models
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
-        //[Required]
-        //[EmailAddress]
-        //[Display(City = "City")]
+        //[Required]        
+        //[Display(Name = "City")]
         //public string City { get; set; }
 
-        //[Required]
-        //[EmailAddress]
-        //[Display(State = "State")]
-        //public string State { get; set; }
+        [Required]
+        [Display(Name = "State")]
+        public string StateNotKey { get; set; }
 
         //[Required]
-        //[EmailAddress]
-        //[Display(ZipCode = "Zip Code")]
+        //[Display(Name = "Zip Code")]
         //public string ZipCode { get; set; }
 
         //[Required]
-        //[EmailAddress]
-        //[Display(Adress = "Adress")]
+        //[Display(Name = "Adress")]
         //public string Adress { get; set; }
     }
 
@@ -141,7 +135,7 @@ namespace TrashPickup.Models
     }
     public class Adress
     {
-       [Key]
+       
 
     }
 }
