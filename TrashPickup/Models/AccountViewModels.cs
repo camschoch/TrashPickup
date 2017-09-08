@@ -70,8 +70,8 @@ namespace TrashPickup.Models
         public string Email { get; set; }
 
         [Required]
-        [Display(Name = "UserRoles")]
-        public string UserRoles { get; set; }
+        [Display(Name = "User Roles")]
+        public string UserPosition { get; set; }
 
         [Required]
         [Display(Name = "UserName")]
@@ -92,13 +92,16 @@ namespace TrashPickup.Models
         //[Display(Name = "City")]
         //public string City { get; set; }
 
-        [Required]
+      
+        public States States { get; set; }
         [Display(Name = "State")]
-        public string StateNotKey { get; set; }
+        public int StateKey { get; set; }
+        public IEnumerable<States> State { get; set; }
 
-        //[Required]
-        //[Display(Name = "Zip Code")]
-        //public string ZipCode { get; set; }
+
+        [Required]
+        [Display(Name = "Zip Code")]
+        public int ZipCode { get; set; }
 
         //[Required]
         //[Display(Name = "Adress")]

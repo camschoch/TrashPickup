@@ -35,17 +35,23 @@
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
     </div>
-    ///////CHANGE TO STATE DROPDOWN
     <div class="form-group">
-        @Html.Label("State Name", new { @class = "col-md-2 control-label" })
+        @Html.LabelFor(model => model.StateKey, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("StateNotKey", (SelectList)ViewBag.State, " ")
+            @Html.DropDownListFor(model => model.StateKey, new SelectList(Model.State , "ID", "State"), "", new {@class = "form-control"})
+            @Html.ValidationMessageFor(model => model.StateKey, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.ZipCode, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ZipCode, new { @class = "form-control" })
         </div>
     </div>
     <div class="form-group">
         @Html.Label("User Role", new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("UserRoles", (SelectList)ViewBag.Name, " ")
+            @Html.DropDownList("UserPosition", (SelectList)ViewBag.Name, " ")
         </div>
     </div>
     <div class="form-group">

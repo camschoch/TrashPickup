@@ -133,6 +133,9 @@ namespace TrashPickup.Controllers
                 default:
                     ModelState.AddModelError("", "Invalid code.");
                     return View(model);
+
+                    //var statesModel = new States();
+                    //statesModel.
             }
         }
 
@@ -144,8 +147,11 @@ namespace TrashPickup.Controllers
             ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
                                             .ToList(), "Name", "Name");
 
-            ViewBag.State = new SelectList(context.States.ToList(), "State", "StateAbriviation");
-            return View();
+            RegisterViewModel model = new RegisterViewModel();
+            model.State = context.States.ToList();
+            //model.UserRoles = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin")).ToList(), "Name", "Name");
+            //ViewBag.State = new SelectList(context.States.ToList(), "State", "StateAbriviation");
+            return View(model);
         }
 
         //
@@ -155,11 +161,13 @@ namespace TrashPickup.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            model.State = context.States.ToList();
+            ViewBag.Name = new SelectList(context.Roles.Where(u => !u.Name.Contains("Admin"))
+                                            .ToList(), "Name", "Name");
             if (ModelState.IsValid)
             {
-                var results = context.States.Single(a => a.State == model.StateNotKey);
-                
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, StateKey = results.ID };
+
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email, StateKey = model.StateKey, ZipCode = model.ZipCode };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -170,7 +178,7 @@ namespace TrashPickup.Controllers
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                    await this.UserManager.AddToRoleAsync(user.Id, model.UserRoles);
+                    await this.UserManager.AddToRoleAsync(user.Id, model.UserPosition.ToString());
                     
                     return RedirectToAction("Index", "Home");
                 }
