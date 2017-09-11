@@ -243,9 +243,21 @@
     <Compile Include="Migrations\201709111848156_adding weekly pickup along with temp pickup.Designer.cs">
       <DependentUpon>201709111848156_adding weekly pickup along with temp pickup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709111921275_fixing quick issue.cs" />
+    <Compile Include="Migrations\201709111921275_fixing quick issue.Designer.cs">
+      <DependentUpon>201709111921275_fixing quick issue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709111957587_adding so you track number of pickups.cs" />
+    <Compile Include="Migrations\201709111957587_adding so you track number of pickups.Designer.cs">
+      <DependentUpon>201709111957587_adding so you track number of pickups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709112004008_adding so you track number of pickups and if picked up that week.cs" />
+    <Compile Include="Migrations\201709112004008_adding so you track number of pickups and if picked up that week.Designer.cs">
+      <DependentUpon>201709112004008_adding so you track number of pickups and if picked up that week.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\AddressModel.cs" />
+    <Compile Include="Models\StateModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -360,6 +372,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709111848156_adding weekly pickup along with temp pickup.resx">
       <DependentUpon>201709111848156_adding weekly pickup along with temp pickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111921275_fixing quick issue.resx">
+      <DependentUpon>201709111921275_fixing quick issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111957587_adding so you track number of pickups.resx">
+      <DependentUpon>201709111957587_adding so you track number of pickups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709112004008_adding so you track number of pickups and if picked up that week.resx">
+      <DependentUpon>201709112004008_adding so you track number of pickups and if picked up that week.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

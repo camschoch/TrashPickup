@@ -7,7 +7,7 @@
 @using (Html.BeginForm("Pickup", "Customer", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
 
-<p>Pick the day you want to schedule your weekly pickup.</p>
+<p>Pick the day you want to schedule your regular weekly pickup.</p>
 
 <div class="form-group">
     @Html.LabelFor(model => model.DayKey, new { @class = "col-md-2 control-label" })
@@ -17,7 +17,7 @@
     </div>
 </div>
 
-<p>Pick the day you want to schedule your weekly pickup.</p>
+<p>Pick what day you want trash to be picked up next.</p>
 
     <div class="form-group">
         @Html.LabelFor(model => model.DayKey, new { @class = "col-md-2 control-label" })

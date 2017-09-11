@@ -14,6 +14,7 @@ namespace TrashPickup.Models
         public int RegularPickup { get; set; }
         public int ActualPickup { get; set; }
         public bool WeeklyStatus { get; set; }
+        public int NumberOfPickups { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
