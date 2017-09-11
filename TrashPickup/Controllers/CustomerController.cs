@@ -1,30 +1,54 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
+using TrashPickup.Models;
 
 namespace TrashPickup.Controllers
-{
+{   
     public class CustomerController : Controller
     {
+        ApplicationDbContext context;
+        public CustomerController()
+        {
+            context = new ApplicationDbContext();
+        }
+
         // GET: Customer
         public ActionResult Index()
         {
             return View();
         }
-         public ActionResult Pickup()
+
+        [HttpGet]
+        public ActionResult Pickup()
         {
             ViewBag.Message = "Your application Pickup page.";
+            DaysOfTheWeekModel model = new DaysOfTheWeekModel();
+            model.Days = context.DaysOfTheWeek.ToList();
 
-            return View();
+            return View(model);
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Pickup(DaysOfTheWeekModel model)
         {
-            ViewBag.Message = "Your contact page.";
+            if (ModelState.IsValid)
+            {
+                string userName = User.Identity.GetUserName();
+                var user = (from data in context.Users where data.UserName == userName select data).First();
+                user.RegularPickup = model.Id;
 
-            return View();
+
+                user.ActualPickup = model.DayKey;
+                context.SaveChanges();
+                return RedirectToAction("Index", "Customer");
+            }
+            return View(model);
         }
     }
 }

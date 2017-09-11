@@ -235,6 +235,14 @@
     <Compile Include="Migrations\201709111423255_testing days drop down.Designer.cs">
       <DependentUpon>201709111423255_testing days drop down.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709111530252_adding pickup day to user database.cs" />
+    <Compile Include="Migrations\201709111530252_adding pickup day to user database.Designer.cs">
+      <DependentUpon>201709111530252_adding pickup day to user database.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709111848156_adding weekly pickup along with temp pickup.cs" />
+    <Compile Include="Migrations\201709111848156_adding weekly pickup along with temp pickup.Designer.cs">
+      <DependentUpon>201709111848156_adding weekly pickup along with temp pickup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AddressModel.cs" />
@@ -346,6 +354,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709111423255_testing days drop down.resx">
       <DependentUpon>201709111423255_testing days drop down.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111530252_adding pickup day to user database.resx">
+      <DependentUpon>201709111530252_adding pickup day to user database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709111848156_adding weekly pickup along with temp pickup.resx">
+      <DependentUpon>201709111848156_adding weekly pickup along with temp pickup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

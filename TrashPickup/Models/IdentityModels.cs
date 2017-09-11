@@ -11,6 +11,9 @@ namespace TrashPickup.Models
     {
         public int StateKey { get; set; }
         public int ZipCode { get; set; }
+        public int RegularPickup { get; set; }
+        public int ActualPickup { get; set; }
+        public bool WeeklyStatus { get; set; }
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -31,7 +34,6 @@ namespace TrashPickup.Models
         {
             return new ApplicationDbContext();
         }
-        public DbSet<AddressModel> Addresss { get; set; }
         public DbSet<States> States { get; set; }
         public DbSet<DaysOfTheWeekModel> DaysOfTheWeek { get; set; }
 
