@@ -1,0 +1,15 @@
+﻿@model TrashPickup.Models.DaysOfTheWeekModel
+@{
+    ViewBag.Title = "Pickup";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Pick the day you want to schedule your weekly pickup.</p>
+<div class="form-group">
+    @Html.LabelFor(model => model.DayKey, new { @class = "col-md-2 control-label" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.DayKey, new SelectList(Model.Days, "Id", "Day"), "", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.DayKey, "", new { @class = "text-danger" })
+    </div>
+</div>

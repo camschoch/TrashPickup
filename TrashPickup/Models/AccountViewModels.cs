@@ -136,4 +136,15 @@ namespace TrashPickup.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+    public class DaysOfTheWeekModel
+    {
+        public DaysOfTheWeekModel DaysOfTheWeek { get; set; }
+        [Display(Name = "Day")]
+        public int DayKey { get; set; }
+        public IEnumerable<DaysOfTheWeekModel> Days { get; set; }
+
+        [Key]
+        public int Id { get; set; }
+        public string Day { get; set; }
+    }
 }

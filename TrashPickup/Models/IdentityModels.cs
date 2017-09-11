@@ -33,6 +33,7 @@ namespace TrashPickup.Models
         }
         public DbSet<AddressModel> Addresss { get; set; }
         public DbSet<States> States { get; set; }
+        public DbSet<DaysOfTheWeekModel> DaysOfTheWeek { get; set; }
 
     }
 }
