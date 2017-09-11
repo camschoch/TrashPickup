@@ -329,7 +329,7 @@
     <Content Include="Views\Shared\_CustomerLayout.cshtml" />
     <Content Include="Views\Shared\_EmployeeLayout.cshtml" />
     <Content Include="Views\Customer\Pickup.cshtml" />
-    <Content Include="Views\Employee\About.cshtml" />
+    <Content Include="Views\Employee\EmployeePickup.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

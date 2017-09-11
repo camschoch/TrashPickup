@@ -147,4 +147,10 @@ namespace TrashPickup.Models
         public int Id { get; set; }
         public string Day { get; set; }
     }
+    public class EmployeeSearchZip
+    {
+        [Required]
+        [Display(Name = "Zip Code")]
+        public int ZipCode { get; set; }
+    }
 }
