@@ -1,7 +1,34 @@
-﻿@{
+﻿@model IEnumerable<TrashPickup.Models.ApplicationUser>
+@{
     ViewBag.Title = "EmployeePickup";
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-
+@*@Html.ActionLink("Edit Player Info", "Edit", "Players", new { id = Model.Id }, null)*@
 <p>Use this area to provide additional information for employee pickup.</p>
+
+<div><b>Table Format Data Displaying in ForEach</b><br /></div>
+<table class="table table-bordered table-responsive table-hover">
+    <tr>
+        <th>Customer Id</th>
+        <th>User Name</th>
+        <th>ZipCode</th>
+        @*<th>Email</th>
+        <th>Salary</th>
+        <th>Company</th>
+        <th>Department</th>*@
+    </tr>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>@d.Id</td>
+            <td>@d.UserName</td>
+            <td>@d.ZipCode</td>
+            @*<td>@d.Email</td>
+            <td>@d.Salary</td>
+            <td>@d.Company</td>
+            <td>@d.Dept</td>*@
+
+        </tr>
+    }
+</table>  

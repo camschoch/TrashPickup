@@ -23,14 +23,83 @@ namespace TrashPickup.Controllers
         [HttpGet]
         public ActionResult EmployeePickup(EmployeeSearchZip model)
         {
-
+            //Need to refactor
             ViewBag.Message = "Your application employee pickup description page.";
-            var userName = User.Identity.GetUserName();
-            var user = (from data in context.Users where data.UserName == userName select data).First();
-            user.ZipCode = model.ZipCode;
-            context.SaveChanges();
-            var results = (from data in context.Users where data.ZipCode == user.ZipCode select data);
 
+            List<ApplicationUser> finalList = new List<ApplicationUser>();
+            var userName = User.Identity.GetUserName();
+            var worker = (from data in context.Users where data.UserName == userName select data).First();
+            worker.ZipCode = model.ZipCode;
+            var today = DateTime.Now;
+            if (today.DayOfWeek.ToString().Equals("Sunday"))
+            {
+                worker.ActualPickup = 1;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Monday"))
+            {
+                worker.ActualPickup = 2;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Tuesday"))
+            {
+                worker.ActualPickup = 3;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Wednesday"))
+            {
+                worker.ActualPickup = 4;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Thursday"))
+            {
+                worker.ActualPickup = 5;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Friday"))
+            {
+                worker.ActualPickup = 6;
+            }
+            else if (today.DayOfWeek.ToString().Equals("Saturday"))
+            {
+                worker.ActualPickup = 7;
+            }
+            context.SaveChanges();
+            var users = (from data in context.Users where data.ZipCode == worker.ZipCode select data).ToList();
+
+            var customers = (from data in context.Roles where data.Name == "Customer" select data.Users).ToList();
+            List<ApplicationUser> tempHold = new List<ApplicationUser>();            
+            var allCustomers = customers[0];
+            foreach (var person in allCustomers)
+            {
+                var results = (from data in context.Users where data.Id == person.UserId && data.ActualPickup == worker.ActualPickup select data).ToList();
+                if (results.Count > 0)
+                {
+                    tempHold.Add(results[0]);
+                }
+            }
+            foreach (var item in tempHold)
+            {                
+                for (int i = 0; i < users.Count; i++)
+                {
+                    if (item == users[i])
+                    {
+                        finalList.Add(item);
+                        break;
+                    }
+                }                
+            }
+            return View(finalList);
+        }
+        [HttpPost]
+        public ActionResult EmployeePickup()
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    string userName = User.Identity.GetUserName();
+            //    var user = (from data in context.Users where data.UserName == userName select data).First();
+            //    user.RegularPickup = model.Id;
+
+
+            //    user.ActualPickup = model.DayKey;
+            //    context.SaveChanges();
+                return RedirectToAction("Index", "Employee");
+            //}
             return View();
         }
 
