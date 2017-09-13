@@ -30,6 +30,7 @@ namespace TrashPickup.Controllers
             var userName = User.Identity.GetUserName();
             var worker = (from data in context.Users where data.UserName == userName select data).First();
             worker.ZipCode = model.ZipCode;
+            context.SaveChanges();
             var today = DateTime.Now;
             if (today.DayOfWeek.ToString().Equals("Sunday"))
             {
@@ -86,9 +87,13 @@ namespace TrashPickup.Controllers
             }
             return View(finalList);
         }
-        [HttpPost]
-        public ActionResult EmployeePickup()
+        
+        public ActionResult EmployeePickupPost(string clientId)
         {
+            var user = (from data in context.Users where data.Id == clientId select data).First();
+            user.ActualPickup = user.RegularPickup;
+            user.NumberOfPickups++;
+            context.SaveChanges();
             //if (ModelState.IsValid)
             //{
             //    string userName = User.Identity.GetUserName();
@@ -98,7 +103,7 @@ namespace TrashPickup.Controllers
 
             //    user.ActualPickup = model.DayKey;
             //    context.SaveChanges();
-                return RedirectToAction("Index", "Employee");
+                return RedirectToAction("EmployeePickup", "Employee");
             //}
             return View();
         }

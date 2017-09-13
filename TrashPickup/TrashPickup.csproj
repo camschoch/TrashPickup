@@ -255,6 +255,10 @@
     <Compile Include="Migrations\201709112004008_adding so you track number of pickups and if picked up that week.Designer.cs">
       <DependentUpon>201709112004008_adding so you track number of pickups and if picked up that week.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709131317485_added adress to user.cs" />
+    <Compile Include="Migrations\201709131317485_added adress to user.Designer.cs">
+      <DependentUpon>201709131317485_added adress to user.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\StateModels.cs" />
@@ -381,6 +385,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709112004008_adding so you track number of pickups and if picked up that week.resx">
       <DependentUpon>201709112004008_adding so you track number of pickups and if picked up that week.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709131317485_added adress to user.resx">
+      <DependentUpon>201709131317485_added adress to user.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

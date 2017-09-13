@@ -98,14 +98,12 @@ namespace TrashPickup.Models
         public int StateKey { get; set; }
         public IEnumerable<States> State { get; set; }
 
-
         [Required]
         [Display(Name = "Zip Code")]
         public int ZipCode { get; set; }
 
-        //[Required]
-        //[Display(Name = "Adress")]
-        //public string Adress { get; set; }
+        [Display(Name = "Address")]
+        public string Address { get; set; }
     }
 
     public class ResetPasswordViewModel

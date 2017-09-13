@@ -11,6 +11,7 @@ namespace TrashPickup.Models
     {
         public int StateKey { get; set; }
         public int ZipCode { get; set; }
+        public string Address { get; set; }
         public int RegularPickup { get; set; }
         public int ActualPickup { get; set; }
         public bool WeeklyStatus { get; set; }

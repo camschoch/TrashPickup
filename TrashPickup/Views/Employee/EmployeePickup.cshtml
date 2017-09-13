@@ -13,22 +13,23 @@
         <th>Customer Id</th>
         <th>User Name</th>
         <th>ZipCode</th>
-        @*<th>Email</th>
-        <th>Salary</th>
-        <th>Company</th>
+        <th>Adress</th>
+        <th>Pickup status</th>
+        @*<th>Company</th>
         <th>Department</th>*@
     </tr>
     @foreach (var d in Model)
     {
         <tr>
-            <td>@d.Id</td>
-            <td>@d.UserName</td>
-            <td>@d.ZipCode</td>
-            @*<td>@d.Email</td>
-            <td>@d.Salary</td>
-            <td>@d.Company</td>
+            <td>@Html.DisplayFor(temp => d.Id)</td>
+            <td>@Html.DisplayFor(temp => d.UserName)</td>
+            <td>@Html.DisplayFor(temp => d.ZipCode)</td>
+            <td>@Html.DisplayFor(temp => d.Address)</td>
+            <td>@Html.ActionLink("Picked up", "EmployeePickupPost", "Employee", new { clientId = d.Id }, null)</td>
+            @*<td>@d.Company</td>
             <td>@d.Dept</td>*@
 
         </tr>
+
     }
 </table>  
