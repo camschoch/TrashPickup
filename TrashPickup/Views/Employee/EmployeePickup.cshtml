@@ -10,7 +10,6 @@
 <div><b>Table Format Data Displaying in ForEach</b><br /></div>
 <table class="table table-bordered table-responsive table-hover">
     <tr>
-        <th>Customer Id</th>
         <th>User Name</th>
         <th>ZipCode</th>
         <th>Adress</th>
@@ -21,10 +20,10 @@
     @foreach (var d in Model)
     {
         <tr>
-            <td>@Html.DisplayFor(temp => d.Id)</td>
             <td>@Html.DisplayFor(temp => d.UserName)</td>
             <td>@Html.DisplayFor(temp => d.ZipCode)</td>
             <td>@Html.DisplayFor(temp => d.Address)</td>
+            <td>@Html.DisplayFor(temp => d.Email)</td>
             <td>@Html.ActionLink("Picked up", "EmployeePickupPost", "Employee", new { clientId = d.Id }, null)</td>
             @*<td>@d.Company</td>
             <td>@d.Dept</td>*@

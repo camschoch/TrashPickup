@@ -50,5 +50,13 @@ namespace TrashPickup.Controllers
             }
             return View(model);
         }
+        [HttpGet]
+        public ActionResult Billing()
+        {
+            string userName = User.Identity.GetUserName();
+            var user = (from data in context.Users where data.UserName == userName select data).First();
+            int amountOwed = user.NumberOfPickups * 35;//change to a variable called cost of pickup
+            return View(amountOwed);
+        }
     }
 }

@@ -94,25 +94,11 @@ namespace TrashPickup.Controllers
             user.ActualPickup = user.RegularPickup;
             user.NumberOfPickups++;
             context.SaveChanges();
-            //if (ModelState.IsValid)
-            //{
-            //    string userName = User.Identity.GetUserName();
-            //    var user = (from data in context.Users where data.UserName == userName select data).First();
-            //    user.RegularPickup = model.Id;
-
-
-            //    user.ActualPickup = model.DayKey;
-            //    context.SaveChanges();
-                return RedirectToAction("EmployeePickup", "Employee");
-            //}
+            return RedirectToAction("Index", "Employee");
+        }
+        public ActionResult Maps()
+        {
             return View();
         }
-
-        //public ActionResult Contact()
-        //{
-        //    ViewBag.Message = "Your contact page.";
-
-        //    return View();
-        //}
     }
 }
