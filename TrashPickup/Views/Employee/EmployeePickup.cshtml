@@ -4,7 +4,6 @@
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
-@*@Html.ActionLink("Edit Player Info", "Edit", "Players", new { id = Model.Id }, null)*@
 <p>Use this area to provide additional information for employee pickup.</p>
 
 <div><b>Table Format Data Displaying in ForEach</b><br /></div>
@@ -13,9 +12,8 @@
         <th>User Name</th>
         <th>ZipCode</th>
         <th>Adress</th>
+        <th>Email</th>
         <th>Pickup status</th>
-        @*<th>Company</th>
-        <th>Department</th>*@
     </tr>
     @foreach (var d in Model)
     {
@@ -25,9 +23,6 @@
             <td>@Html.DisplayFor(temp => d.Address)</td>
             <td>@Html.DisplayFor(temp => d.Email)</td>
             <td>@Html.ActionLink("Picked up", "EmployeePickupPost", "Employee", new { clientId = d.Id }, null)</td>
-            @*<td>@d.Company</td>
-            <td>@d.Dept</td>*@
-
         </tr>
 
     }

@@ -34,31 +34,31 @@ namespace TrashPickup.Controllers
             var today = DateTime.Now;
             if (today.DayOfWeek.ToString().Equals("Sunday"))
             {
-                worker.ActualPickup = 1;
+                worker.ActualPickup = 9;
             }
             else if (today.DayOfWeek.ToString().Equals("Monday"))
             {
-                worker.ActualPickup = 2;
+                worker.ActualPickup = 10;
             }
             else if (today.DayOfWeek.ToString().Equals("Tuesday"))
             {
-                worker.ActualPickup = 3;
+                worker.ActualPickup = 11;
             }
             else if (today.DayOfWeek.ToString().Equals("Wednesday"))
             {
-                worker.ActualPickup = 4;
+                worker.ActualPickup = 12;
             }
             else if (today.DayOfWeek.ToString().Equals("Thursday"))
             {
-                worker.ActualPickup = 5;
+                worker.ActualPickup = 13;
             }
             else if (today.DayOfWeek.ToString().Equals("Friday"))
             {
-                worker.ActualPickup = 6;
+                worker.ActualPickup = 14;
             }
             else if (today.DayOfWeek.ToString().Equals("Saturday"))
             {
-                worker.ActualPickup = 7;
+                worker.ActualPickup = 15;
             }
             context.SaveChanges();
             var users = (from data in context.Users where data.ZipCode == worker.ZipCode select data).ToList();
